@@ -17,8 +17,9 @@ public class EnableUserByTokensUS implements EnableUserByTokenPort {
 
         var user = repository.findByTokenValue(token);
         
-        if(user != null && !user.getToken().hasExpired()){
+        if(user != null && user.getToken().notHasExpired()){
             user.setEnabled(true);
+            user.setToken(null);
         }
         repository.save(user);
     }

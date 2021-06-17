@@ -11,10 +11,14 @@ public class Token {
     private LocalDateTime expiredAt;
 
     public Token(){
-        this.expiredAt = LocalDateTime.now().plusDays(2);
+        this.expiredAt = LocalDateTime.now().plusSeconds(59);
     }
 
     public boolean hasExpired(){
         return expiredAt.isBefore(LocalDateTime.now());
+    }
+
+    public boolean notHasExpired(){
+        return !hasExpired();
     }
 }
