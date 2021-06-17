@@ -16,6 +16,7 @@ public class User {
     private String id;
     private String name;
     private String email;
+    private Token token;
     private String password;
     private boolean enabled;
 }
